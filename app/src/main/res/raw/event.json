@@ -1,0 +1,39 @@
+{
+  "Event":
+  {
+    "eventName":"Вечеринка",
+    "previewUrl":"https://www.npb88.co.uk/sites/default/files/styles/work_slider/public/img_0661.jpg?itok=1wk0UAwl",
+    "inviter": {
+      "name": "Кристина",
+      "id": "10101010",
+      "avatarUrl": "https://pbs.twimg.com/profile_images/926488420645523456/hwKSfqNj.jpg"
+    },
+    "invitedPerson": {
+      "name": "Вы",
+      "id": "0",
+      "avatarUrl": "https://pbs.twimg.com/profile_images/926488420645523456/hwKSfqNj.jpg"
+    },
+    "guests": [
+      {
+        "name": "Инесса",
+        "id": "100",
+        "avatarUrl": "https://pbs.twimg.com/profile_images/926488420645523456/hwKSfqNj.jpg"
+      },
+      {
+        "name": "Васисуалий",
+        "id": "101",
+        "avatarUrl": "https://pbs.twimg.com/profile_images/926488420645523456/hwKSfqNj.jpg"
+      },
+      {
+        "name": "Олег",
+        "id": "102",
+        "avatarUrl": "https://pbs.twimg.com/profile_images/926488420645523456/hwKSfqNj.jpg"
+      },
+      {
+        "name": "Алексей",
+        "id": "103",
+        "avatarUrl": "https://pbs.twimg.com/profile_images/926488420645523456/hwKSfqNj.jpg"
+      }
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="preview_image_height">180dp</dimen>
+
+    <dimen name="margin_main">16dp</dimen>
+
+    <dimen name="avatar_size">40dp</dimen>
+
+    <dimen name="event_name_text_height">28dp</dimen>
+
+    <dimen name="invited_by_text_height">16dp</dimen>
+
+    <dimen name="recycler_username_height">19dp</dimen>
+    <dimen name="recycler_margin">10dp</dimen>
+
+    <dimen name="come_with_you_height">14dp</dimen>
+    <dimen name="margin_come_with_you">32dp</dimen>
+
+    <dimen name="text_preview">24sp</dimen>
+    <dimen name="text_regular">16sp</dimen>
+    <dimen name="text_small">14sp</dimen>
+    <dimen name="text_tiny">12sp</dimen>
+</resources>
