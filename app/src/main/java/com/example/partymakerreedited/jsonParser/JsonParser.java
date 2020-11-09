@@ -15,8 +15,7 @@ import java.util.stream.Collectors;
 
 public class JsonParser {
 
-    private static JSONObject convertToJson(InputStream inputStream)
-    {
+    private static JSONObject convertToJson(InputStream inputStream) {
         String result = new BufferedReader(new InputStreamReader(inputStream))
                 .lines().collect(Collectors.joining("\n"));
 
@@ -30,8 +29,7 @@ public class JsonParser {
 
     }
 
-    public static Event parseEvent(InputStream stream)
-    {
+    public static Event parseEvent(InputStream stream) {
         Event event = new Event();
         try {
             JSONObject data = convertToJson(stream).getJSONObject("Event");
@@ -51,8 +49,7 @@ public class JsonParser {
     }
 
 
-    private static User getUser(JSONObject data)
-    {
+    private static User getUser(JSONObject data) {
         try {
             User u = new User(data.getString("avatarUrl"), data.getString("name"),
                     data.getString("id"));
@@ -63,8 +60,7 @@ public class JsonParser {
         }
     }
 
-    private static ArrayList<User> getGuests(JSONArray data)
-    {
+    private static ArrayList<User> getGuests(JSONArray data) {
         ArrayList<User> guests = new ArrayList<User>();
 
         for (int i = 0; i < data.length(); i++) {

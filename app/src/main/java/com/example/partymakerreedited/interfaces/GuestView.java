@@ -1,4 +1,4 @@
-package com.example.partymakerreedited.presenter;
+package com.example.partymakerreedited.interfaces;
 
 import com.example.partymakerreedited.models.Event;
 

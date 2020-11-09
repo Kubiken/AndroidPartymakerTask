@@ -13,7 +13,7 @@ import com.example.partymakerreedited.adapters.GuestRecyclerViewAdapter;
 import com.example.partymakerreedited.imageWorker.ImageLoader;
 import com.example.partymakerreedited.models.Event;
 import com.example.partymakerreedited.presenter.EventPagePresenter;
-import com.example.partymakerreedited.presenter.GuestView;
+import com.example.partymakerreedited.interfaces.GuestView;
 
 public class MainActivity extends AppCompatActivity implements
 GuestRecyclerViewAdapter.onGuestClickListner, GuestView {
@@ -22,8 +22,6 @@ GuestRecyclerViewAdapter.onGuestClickListner, GuestView {
     private RecyclerView guestsRecyclerView;
     private EventPagePresenter eventPagePresenter;
     private TextView eventName, inviterName, comeWith;
-    private Event event;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,21 +43,26 @@ GuestRecyclerViewAdapter.onGuestClickListner, GuestView {
     }
 
     public void onGuestClick(String userId) {
-        eventPagePresenter.refreshPage(event, userId);
+        eventPagePresenter.refreshPage(userId);
     }
 
     @Override
     public void buildList(Event event) {
 
-        StringBuilder sb = new StringBuilder();
+        StringBuilder stringBuilder = new StringBuilder();
         String space = " ";
-        String comeWithString = sb.append(getResources().getText(R.string.with)).
-                append(space).append(event.getInvitedPerson().getName()).
-                append(space).append(getResources().getText(R.string.come)).toString();
+        String comeWithString = stringBuilder
+                .append(getResources().getText(R.string.with))
+                .append(space)
+                .append(event.getInvitedPerson().getName())
+                .append(space)
+                .append(getResources().getText(R.string.come))
+                .toString();
+
         comeWith.setText(comeWithString);
 
-        GuestRecyclerViewAdapter grva = new GuestRecyclerViewAdapter(this, event.getGuests(), this);
-        guestsRecyclerView.setAdapter(grva);
+        GuestRecyclerViewAdapter guestRecyclerViewAdapter = new GuestRecyclerViewAdapter(this, event.getGuests(), this);
+        guestsRecyclerView.setAdapter(guestRecyclerViewAdapter);
         LinearLayoutManager layoutManager
                 = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         guestsRecyclerView.setLayoutManager(layoutManager);
@@ -68,14 +71,16 @@ GuestRecyclerViewAdapter.onGuestClickListner, GuestView {
     @Override
     public void buildMain(Event event) {
 
-        this.event = event;
         ImageLoader.loadImg(eventPreviewImageView,event.getEventPreviewImage(),this);
         ImageLoader.loadRoundedImg(inviterAvatar,event.getInviter().getAvatarUrl(), this);
 
-        StringBuilder sb = new StringBuilder();
+        StringBuilder stringBuilder = new StringBuilder();
         String space = " ";
-        String invitedBy = sb.append(getResources().getText(R.string.invited_by)).append(" ").
-                append(event.getInviter().getName()).toString();
+        String invitedBy = stringBuilder
+                .append(getResources().getText(R.string.invited_by))
+                .append(" ").
+                append(event.getInviter().getName())
+                .toString();
         eventName.setText(event.getEventName());
         inviterName.setText(invitedBy);
     }

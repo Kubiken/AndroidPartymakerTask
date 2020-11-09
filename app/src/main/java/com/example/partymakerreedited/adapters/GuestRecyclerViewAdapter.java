@@ -21,15 +21,15 @@ import java.util.ArrayList;
  * Adapter for recyclerview with list of guests
  */
 
-public class GuestRecyclerViewAdapter extends RecyclerView.Adapter<GuestRecyclerViewAdapter.guestRecyclerViewHolder>
- {
+public class GuestRecyclerViewAdapter extends
+        RecyclerView.Adapter<GuestRecyclerViewAdapter.guestRecyclerViewHolder> {
 
     Context context;
     ArrayList<User> users;
     private GuestRecyclerViewAdapter.onGuestClickListner onGuestClickListner;
 
-    public GuestRecyclerViewAdapter(Context context, ArrayList<User> users, GuestRecyclerViewAdapter.onGuestClickListner onGuestClickListner)
-    {
+    public GuestRecyclerViewAdapter(Context context, ArrayList<User> users,
+                                    GuestRecyclerViewAdapter.onGuestClickListner onGuestClickListner) {
         this.context = context;
         this.users = users;
         this.onGuestClickListner=onGuestClickListner;
@@ -46,9 +46,9 @@ public class GuestRecyclerViewAdapter extends RecyclerView.Adapter<GuestRecycler
     @Override
     public void onBindViewHolder(@NonNull guestRecyclerViewHolder holder, int position) {
         User currentUser = users.get(position);
-        holder.tv.setText(currentUser.getName());
+        holder.guestName.setText(currentUser.getName());
 
-        ImageLoader.loadRoundedImg(holder.iv,currentUser.getAvatarUrl(),context);
+        ImageLoader.loadRoundedImg(holder.guestAvatar,currentUser.getAvatarUrl(),context);
     }
 
     @Override
@@ -57,15 +57,14 @@ public class GuestRecyclerViewAdapter extends RecyclerView.Adapter<GuestRecycler
     }
 
     public class guestRecyclerViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-
-        ImageView iv;
-        TextView tv;
+        ImageView guestAvatar;
+        TextView guestName;
         GuestRecyclerViewAdapter.onGuestClickListner onGuestClickListner;
 
         public guestRecyclerViewHolder(@NonNull View itemView, GuestRecyclerViewAdapter.onGuestClickListner onGuestClickListner) {
             super(itemView);
-        iv = itemView.findViewById(R.id.guestAvatar);
-        tv = itemView.findViewById(R.id.guestName);
+        guestAvatar = itemView.findViewById(R.id.guestAvatar);
+        guestName = itemView.findViewById(R.id.guestName);
         this.onGuestClickListner=onGuestClickListner;
         itemView.setOnClickListener(this);
         }
@@ -76,8 +75,7 @@ public class GuestRecyclerViewAdapter extends RecyclerView.Adapter<GuestRecycler
         }
     }
 
-    public interface onGuestClickListner
-     {
+    public interface onGuestClickListner {
          public void onGuestClick(String userId);
      }
 }

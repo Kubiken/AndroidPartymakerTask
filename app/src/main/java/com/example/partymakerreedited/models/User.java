@@ -6,15 +6,13 @@ public class User {
     private String name;
     private String id;
 
-    public User()
-    {
+    public User() {
         avatarUrl="";
         id="";
         name="Anonymous";
     }
 
-    public User(String avatarUrl, String name, String id)
-    {
+    public User(String avatarUrl, String name, String id) {
         this.avatarUrl = avatarUrl;
         this.id = id;
         this.name = name;

@@ -9,16 +9,14 @@ import com.bumptech.glide.request.RequestOptions;
 
 public class ImageLoader
 {
-    static public void loadImg(ImageView iv, String uri, Context c)
-    {
+    static public void loadImg(ImageView iv, String uri, Context c) {
         Glide.with(c)
                 .load(uri)
                 .centerCrop()
                 .into(iv);
     }
 
-    static public void loadRoundedImg(ImageView iv, String uri, Context c)
-    {
+    static public void loadRoundedImg(ImageView iv, String uri, Context c) {
         Glide.with(c)
                 .load(uri)
                 .centerCrop()

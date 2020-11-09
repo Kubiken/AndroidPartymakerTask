@@ -11,8 +11,7 @@ public class Event {
     private String eventPreviewImage;
     private User invitedPerson;
 
-    public Event()
-    {
+    public Event() {
         guests = new ArrayList<User>();
     }
 
@@ -22,13 +21,6 @@ public class Event {
 
     public void setInvitedPerson(User invitedPerson) {
         this.invitedPerson = invitedPerson;
-    }
-
-    public Event(User inviter, String eventName, ArrayList<User> guests, String eventPreviewImage) {
-        this.inviter = inviter;
-        this.eventName = eventName;
-        this.guests = guests;
-        this.eventPreviewImage = eventPreviewImage;
     }
 
     public String getEventPreviewImage() {
@@ -63,16 +55,14 @@ public class Event {
         this.guests = guests;
     }
 
-    public User findById(String id)
-    {
+    public User findById(String id) {
         for(User u: guests)
         {
             if(u.getId().equals(id))return u;
         }return new User();
     }
 
-    public void deleteById(String id)
-    {
+    public void deleteById(String id) {
         Iterator<User> iterator = guests.iterator();
         while(iterator.hasNext())
         {
@@ -81,8 +71,7 @@ public class Event {
         }
     }
 
-    public void swap(String callerId)
-    {
+    public void swap(String callerId) {
         guests.add(invitedPerson);
         invitedPerson = findById(callerId);
         deleteById(callerId);
